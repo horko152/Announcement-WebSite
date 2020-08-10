@@ -10,6 +10,7 @@ const SimilarList = ({listOfAnnouncements, setListOfAnnouncements, editRow, sele
         setSimilarListOfAnnouncement((listOfAnnouncements.filter(announcement => {
                 let ifHaveSimilarInTitle = false;
                 let ifHaveSimilarInDescription = false;
+                let currentAnnouncement = selectedSimilar.id !== announcement.id;
 
                 selectedSimilar.title.split(' ').forEach(item => {
                     if (ignoreCase.includes(announcement.title, item)) {
@@ -23,7 +24,7 @@ const SimilarList = ({listOfAnnouncements, setListOfAnnouncements, editRow, sele
                     }
                 })
 
-                return ifHaveSimilarInTitle && ifHaveSimilarInDescription;
+                return ifHaveSimilarInTitle && ifHaveSimilarInDescription && currentAnnouncement;
             }
         )).slice(0, 3));
     }, [selectedSimilar?.id]);
