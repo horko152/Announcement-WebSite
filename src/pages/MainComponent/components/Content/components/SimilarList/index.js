@@ -26,8 +26,6 @@ const SimilarList = ({listOfAnnouncements, setListOfAnnouncements, editRow, sele
                 return ifHaveSimilarInTitle && ifHaveSimilarInDescription;
             }
         ));
-
-        //TODO similar list filter here
     }, [selectedSimilar?.id]);
 
     useEffect(() => {
