@@ -7,7 +7,7 @@ const SimilarList = ({listOfAnnouncements, setListOfAnnouncements, editRow, sele
 
 
     useEffect(() => {
-        setSimilarListOfAnnouncement(listOfAnnouncements.filter(announcement => {
+        setSimilarListOfAnnouncement((listOfAnnouncements.filter(announcement => {
                 let ifHaveSimilarInTitle = false;
                 let ifHaveSimilarInDescription = false;
 
@@ -25,7 +25,7 @@ const SimilarList = ({listOfAnnouncements, setListOfAnnouncements, editRow, sele
 
                 return ifHaveSimilarInTitle && ifHaveSimilarInDescription;
             }
-        ));
+        )).slice(0, 3));
     }, [selectedSimilar?.id]);
 
     useEffect(() => {
